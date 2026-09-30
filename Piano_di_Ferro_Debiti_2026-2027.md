@@ -1,6 +1,6 @@
-# PIANO DI FERRO — Azzeramento debiti Ott 2026 → Dic 2027
+# PIANO DI FERRO — Azzeramento debiti Ott 2026 → Ago 2027
 
-**Intestatario:** Dan Moscaliuc (P.IVA forfettaria, 15% su coefficiente 78%) · **Redatto il:** 29/09/2026
+**Intestatario:** Dan Moscaliuc (P.IVA forfettaria, 15% su coefficiente 78%) · **Redatto il:** 29/09/2026 · **Aggiornato il:** 30/09/2026 (nuova entrata: affitto € 500/mese)
 **Fonti analizzate (cartella Drive "Gestione finanze"):**
 
 | File | Periodo | Copertura della lettura |
@@ -18,8 +18,8 @@
 
 1. **Liquidità attuale quasi zero.** N26 chiude al 29/09 con **€ 9,63** (tutti gli spazi a € 0). I € 10.000 ricevuti il 24/09 (Ciprian € 5.000 + Aurora € 5.000) sono già usciti: **€ 5.500 affitto arretrato (Fior Gino, "accordo Mario")**, **€ 4.000 notaio (rogito + mutuo)**, € 500 sul conto del mutuo. Il saldo Terre Venete non compare nel PDF: dalla ricostruzione di settembre è verosimilmente vicino a zero → **da verificare oggi stesso**.
 2. **L'Amex è diventata una "linea di credito" mascherata.** Negli ultimi 12 mesi hai prelevato **€ 10.241 in contanti** da Schiavon con l'Amex e ne hai riversati **€ 6.235** su Terre Venete, spesso per pagare l'estratto Amex del mese prima. Esempio: 22–24/09 prelievi € 1.618 → versamenti su Terre Venete 23–24/09 € 1.950 → addebito Amex del 25/09 € 3.553. **Addebito Amex già maturato per il 26/10: ~€ 2.484.**
-3. **Ottobre e novembre sono i due mesi critici.** Tra F24 (~€ 1.919 il 16/10; € 3.129 a novembre), Amex (€ 2.484), Barbara (€ 500), Società Verde (€ 1.364) e prima rata mutuo (€ 770) servono **~€ 13.000 in 2 mesi**, a fronte di ~€ 8.000 di entrate ordinarie. Il piano chiude il buco con: **incasso integrale dei crediti (€ 2.500), Società Verde in 3 rate, Aurora al 100% per 2 mesi, 2° acconto di novembre pagato entro il 16/12 con ravvedimento operoso (costo ~€ 35).**
-4. **Obiettivo realistico: debiti personali a ZERO entro dicembre 2027** (Irina entro mar 2027, Ciprian entro ago 2027, Aurora entro dic 2027), senza mai saltare mutuo e tasse. Condizioni: stop totale all'uso dell'Amex, spese di vita di coppia ≤ € 1.100/mese, accantonamento tasse € 850/mese.
+3. **Ottobre e novembre sono i due mesi critici.** Tra F24 (~€ 1.919 il 16/10; € 3.129 a novembre), Amex (€ 2.484), Barbara (€ 500), Società Verde (€ 1.364) e prima rata mutuo (€ 770) servono **~€ 13.000 in 2 mesi**, a fronte di ~€ 8.000 di entrate ordinarie. Il piano chiude il buco con: **affitto dell'appartamento (€ 500/mese da oggi), incasso integrale dei crediti (€ 2.500), Società Verde in 3 rate, Aurora al 100% per 2 mesi.** Grazie all'affitto **anche il 2° acconto del 30/11 si paga puntuale**, senza ravvedimento.
+4. **Obiettivo realistico: debiti personali a ZERO entro agosto 2027** (4 mesi prima della versione precedente): Irina entro feb 2027, Ciprian entro mag 2027, Aurora entro ago 2027. Mutuo e tasse sono sempre coperti. Condizioni: stop totale all'uso dell'Amex, spese di vita di coppia ≤ € 1.100/mese, accantonamento tasse € 850/mese + € 100/mese per la cedolare secca dell'affitto.
 5. **Ci sono debiti che non hai elencato**, e vanno chiariti subito (vedi §2.3): **Julian Jacquin € 3.000 "Prestito acquisto auto" (21/07/2026)** e un bonifico a **Kroll Advisory (€ 300, 10/11/2025)**, società che si occupa di recupero crediti.
 
 ---
@@ -34,10 +34,11 @@
 | Media lordo da Gestionale | CSV | € 3.229,60 | ⚠️ La riga AGOSTO (€ 3.727,20) è un **duplicato** di LUGLIO: il 07/09 hai incassato € 2.444,50 ("provvigioni Agosto 2026"). Media corretta su 9 incassi: **€ 3.174,31** |
 | **Media NETTO da Gestionale** | CSV | **€ 1.106,62/mese** | Calcolata su reddito forfettario (78%) − INPS (€ 9.568) − imposte (€ 2.343), diviso 12 |
 | Netto di cassa reale | calcolo | **~€ 1.994/mese** | € 35.839 incassati − (€ 9.568 + € 2.343) di INPS e imposte. Il netto del Gestionale sottrae anche il 22% di costi "figurativi" del forfettario, che non escono davvero dal conto |
+| **Affitto appartamento (NUOVO)** | dato fornito | **€ 500/mese** da 30/09/2026 | Non tocca il forfettario: si tassa a parte (cedolare secca 21%, 10% se canone concordato) → nel piano **€ 100/mese accantonati**, netto disponibile ~€ 400 |
 | Stipendio Aurora | dato fornito | **€ 1.350/mese** | Nel piano: € 1.100/mese al budget comune (€ 1.350 a ott–nov) |
 | Altre entrate di persone (12 mesi) | N26 + TV | € 7.689 (N26) | Includono € 3.000 prestito Julian, € 1.170 "Family expenses" (Schidu), € 1.000 Aurora "macchina", € 1.640 da Irina (matrimoni, condominio, assicurazione, tasse), rimborsi cene |
 
-**Entrate familiari di riferimento nel piano:** € 2.800 (provvigioni lorde, prudenziale: −6% sulla media 12 mesi) + € 1.100 (Aurora) = **€ 3.900/mese**. Le tasse sono poi sottratte come uscite esplicite, per non contarle due volte.
+**Entrate familiari di riferimento nel piano:** € 2.800 (provvigioni lorde, prudenziale: −6% sulla media 12 mesi) + € 1.100 (Aurora) + € 500 (affitto) = **€ 4.400/mese**. Le tasse sono poi sottratte come uscite esplicite, per non contarle due volte.
 
 ### 1.2 Uscite medie mensili rilevate (ultimi 12 mesi, tutti i conti)
 
@@ -116,7 +117,7 @@
 | 3 | **Amex – saldo già maturato** | **~€ 2.484** | **26/10/2026** | 🔴 | Blocco carta, segnalazione, recupero crediti | Paga tutto e **non usare più la carta** |
 | 4 | **Società Verde** | **€ 1.364,00** | **06/11/2026** | 🟠 | Rapporto commerciale | Proponi **3 rate da € 455** (nov/dic/gen). Piano B: saldo intero il 06/11 |
 | 5 | **INPS – 3ª rata fissa 2026** | **€ 757,95** | **16/11/2026** | 🔴 | Sanzioni | Paga puntuale |
-| 6 | **2° acconto 2026** (imposte € 1.634,08 + INPS € 736,60) | **€ 2.370,68** | **30/11/2026** | 🟠 | Sanzione 25% se non regolarizzi | Se la cassa non basta: **ravvedimento operoso entro il 16/12** (sanzione ridotta + interessi ≈ € 35) |
+| 6 | **2° acconto 2026** (imposte € 1.634,08 + INPS € 736,60) | **€ 2.370,68** | **30/11/2026** | 🟠 | Sanzione 25% se non regolarizzi | **Pagalo puntuale il 30/11** (con l'affitto la cassa basta: restano ~€ 106). Paracadute se un'entrata salta: ravvedimento operoso entro il 16/12 (≈ € 35) |
 | 7 | Julian Jacquin (**non dichiarato**) | € 3.000? | ? | ❓ | — | Verifica subito termini e scadenza |
 | 8 | **Irina (cugina)** | € 3.000 | informale | 🟡 | Rapporto familiare | 1° debito personale: il più piccolo (snowball) |
 | 9 | **Ciprian (amico)** | € 5.000 | informale (prestito del 24/09/2026) | 🟡 | Rapporto di amicizia | 2° debito personale |
@@ -139,12 +140,12 @@
 
 | Creditore | Importo | Inizio | Rata | Fine prevista | Accordo proposto |
 |---|---:|---|---|---|---|
-| Irina | € 3.000 | dic 2026 | quello che resta ogni mese (≈ € 1.180 da febbraio) | **marzo 2027** | Messaggio scritto con calendario: "€ 150 a dicembre, € 726 a gennaio, poi ~€ 1.180 al mese" |
-| Ciprian | € 5.000 | marzo 2027 | ~€ 1.180/mese | **agosto 2027** | Promemoria firmato (anche via WhatsApp): importo, rate e data finale |
-| Aurora | € 5.000 | agosto 2027 | ~€ 1.180/mese | **dicembre 2027** | Scrittura privata. **Alternativa consigliata:** se Aurora non è cointestataria della casa, i € 5.000 ("Casa mutuo") possono diventare una quota di comproprietà o un credito formalizzato, così la liquidità della coppia resta libera per chiudere prima i debiti esterni |
-| (Julian) | € 3.000 | gennaio 2028 | ~€ 1.180/mese | marzo 2028 | Da confermare |
+| Irina | € 3.000 | dic 2026 | quello che resta ogni mese | **febbraio 2027** | Messaggio scritto con calendario: "€ 1.581 a dicembre, € 1.126 a gennaio, € 293 a febbraio" |
+| Ciprian | € 5.000 | febbraio 2027 | ~€ 1.580/mese | **maggio 2027** | Promemoria firmato (anche via WhatsApp): importo, rate e data finale |
+| Aurora | € 5.000 | maggio 2027 | ~€ 1.580/mese | **agosto 2027** | Scrittura privata. **Alternativa consigliata:** se Aurora non è cointestataria della casa, i € 5.000 ("Casa mutuo") possono diventare una quota di comproprietà o un credito formalizzato, così la liquidità della coppia resta libera per chiudere prima i debiti esterni |
+| (Julian) | € 3.000 | settembre 2027 | ~€ 1.580/mese | ottobre 2027 | Da confermare |
 
-**Regola d'oro:** i crediti incassati, le provvigioni sopra € 2.800 e eventuali premi o tredicesime vanno **al 100% sul debito in cima alla lista**. Ogni € 1.180 extra anticipa la fine di un mese.
+**Regola d'oro:** i crediti incassati, le provvigioni sopra € 2.800 e eventuali premi o tredicesime vanno **al 100% sul debito in cima alla lista**. Ogni € 1.580 extra anticipa la fine di un mese.
 
 ---
 
@@ -189,7 +190,8 @@
 |---|---|---|
 | **N26 principale** | Provvigioni (automatico) | Smista entro 24 ore dall'incasso |
 | Spazio **"Mutuo"** | € 770 subito | Bonifico al conto del mutuo |
-| Spazio **"Fondo Tasse"** (esiste già come "Partita Iva") | **€ 850/mese** (da gen 2027) | Solo F24 |
+| Spazio **"Fondo Tasse"** (esiste già come "Partita Iva") | **€ 850/mese** (da gen 2027) + **€ 100/mese cedolare** (da dic 2026) | Solo F24 |
+| Conto dove arriva l'affitto | € 500/mese dall'inquilino | Gira subito € 100 al Fondo Tasse e € 400 allo spazio "Debiti" / cassa |
 | Spazio **"Debiti"** | Tutto il margine sopra € 500 di cuscinetto | Rimborsi secondo la matrice |
 | Terre Venete | Contributo di Aurora + budget vita € 1.100 | Spesa, carburante, bollette (carta di debito) |
 | **Amex** | — | **CHIUSA** dopo il saldo del 26/10 |
@@ -200,47 +202,57 @@
 
 ### 4.1 Ipotesi
 - **Provvigioni lorde:** € 2.600 a ottobre (settembre è stato un mese debole), poi € 2.800/mese (−6% rispetto alla media reale di 12 mesi, € 2.987).
+- **Affitto appartamento: € 500/mese**. Il primo canone (30/09) è conteggiato in ottobre; ne arriva uno ogni mese.
 - **Aurora:** € 1.350 al budget comune a ottobre e novembre (mesi ponte), poi € 1.100/mese.
-- **Crediti verso terzi:** € 2.500 incassati entro fine ottobre (**azione n. 1**); nella pratica l'obiettivo minimo è € 2.000 ad ottobre.
+- **Crediti verso terzi:** € 2.500 incassati entro fine ottobre (**azione n. 1**).
 - **Vendita di oggetti non essenziali** (elettronica, articoli Kickstarter, abbigliamento su Vinted): € 300 a ottobre.
 - **Spese di vita della coppia:** € 850 a ott–nov (emergenza), € 1.100 da dicembre (bollette € 250 + cibo € 450 + carburante € 220 + varie € 80 + paghetta € 100).
-- **Tasse 2026:** 16/10 ~€ 1.919; 16/11 € 757,95; 2° acconto di € 2.370,68 versato entro il 16/12 con ravvedimento (+€ 35).
-- **Tasse 2027 (stima prudenziale, da validare col commercialista):** 16/02 € 758 · 18/05 € 770 · 30/06 ~€ 2.926 (saldo 2026 + 1° acconto 2027) · 20/08 € 770 · 16/11 € 770 · 30/11 ~€ 2.828 (2° acconto 2027). Totale ~€ 8.800, coperto dal **Fondo Tasse con € 850/mese** da gennaio 2027.
+- **Tasse 2026, tutte puntuali:** 16/10 ~€ 1.919; 16/11 € 757,95; **30/11 € 2.370,68** (2° acconto).
+- **Tasse 2027 (stima prudenziale, da validare col commercialista):** 16/02 € 758 · 18/05 € 770 · 30/06 ~€ 2.926 (saldo 2026 + 1° acconto 2027) **+ ~€ 441 di cedolare** (saldo 2026 + 1° acconto 2027) · 20/08 € 770 · 16/11 € 770 · 30/11 ~€ 2.828 **+ ~€ 189 di cedolare** (2° acconto). Il **Fondo Tasse** riceve € 850/mese da gennaio 2027 più € 100/mese per la cedolare da dicembre 2026.
+- **Cedolare secca stimata al 21%** su € 500/mese: ~€ 315 per il 2026 (3 canoni), ~€ 1.260/anno a regime. Con canone concordato (10%) si dimezza.
 - **Cuscinetto minimo** sul conto: € 500 (da dicembre 2026). Liquidità iniziale ipotizzata: € 0.
 
 ### 4.2 Tabella mese per mese (€)
 
-| Mese | Entrate | Mutuo | Tasse / Fondo tasse | Vita coppia | Amex + imminenti | **Margine** | **Rimborsi debiti personali** | Cassa fine mese | Fondo tasse | Debiti personali residui |
+| Mese | Entrate (incl. affitto) | Mutuo | Tasse / Fondo tasse | Vita coppia | Amex + imminenti | **Margine** | **Rimborsi debiti personali** | Cassa fine mese | Fondo tasse | Debiti personali residui |
 |---|---:|---:|---:|---:|---:|---:|---|---:|---:|---:|
-| Ott 26 | 6.750 | 770 | 1.919 (F24) | 850 | 2.984 (Amex 2.484 + Barbara 500) | **227** | — | 227 | 0 | 13.000 |
-| Nov 26 | 4.150 | 770 | 758 (INPS 16/11) | 850 | 522 (Soc. Verde 455 + Amex 67) | **1.250** | — | 1.477 | 0 | 13.000 |
-| Dic 26 | 3.900 | 770 | 2.406 (2° acconto + ravv.) | 1.100 | 455 (Soc. Verde) | **−831** | Irina 146 | 500 | 0 | 12.854 |
-| Gen 27 | 3.900 | 770 | 850 → fondo | 1.100 | 454 (Soc. Verde, ultima) | **726** | Irina 726 | 500 | 850 | 12.128 |
-| Feb 27 | 3.900 | 770 | 850 → fondo (paga INPS 758) | 1.100 | 0 | **1.180** | Irina 1.180 | 500 | 942 | 10.948 |
-| Mar 27 | 3.900 | 770 | 850 → fondo | 1.100 | 0 | **1.180** | **Irina 948 ✅ SALDATA** · Ciprian 232 | 500 | 1.792 | 9.768 |
-| Apr 27 | 3.900 | 770 | 850 → fondo | 1.100 | 0 | **1.180** | Ciprian 1.180 | 500 | 2.642 | 8.588 |
-| Mag 27 | 3.900 | 770 | 850 → fondo (paga INPS 770) | 1.100 | 0 | **1.180** | Ciprian 1.180 | 500 | 2.722 | 7.408 |
-| Giu 27 | 3.900 | 770 | 850 → fondo (paga saldo e acconto ~2.926) | 1.100 | 0 | **1.180** | Ciprian 1.180 | 500 | 646 | 6.228 |
-| Lug 27 | 3.900 | 770 | 850 → fondo | 1.100 | 0 | **1.180** | Ciprian 1.180 | 500 | 1.496 | 5.048 |
-| Ago 27 | 3.900 | 770 | 850 → fondo (paga INPS 770) | 1.100 | 0 | **1.180** | **Ciprian 48 ✅ SALDATO** · Aurora 1.132 | 500 | 1.576 | 3.868 |
-| Set 27 | 3.900 | 770 | 850 → fondo | 1.100 | 0 | **1.180** | Aurora 1.180 | 500 | 2.426 | 2.688 |
-| Ott 27 | 3.900 | 770 | 850 → fondo | 1.100 | 0 | **1.180** | Aurora 1.180 | 500 | 3.276 | 1.508 |
-| Nov 27 | 3.900 | 770 | 850 → fondo (paga INPS 770 + 2° acconto ~2.828) | 1.100 | 0 | **1.180** | Aurora 1.180 | 500 | 528 | 328 |
-| Dic 27 | 3.900 | 770 | 850 → fondo | 1.100 | 0 | **1.180** | **Aurora 328 ✅ SALDATA** | **1.352** | 1.378 | **0** 🎯 |
+| Ott 26 | 7.250 | 770 | 1.919 (F24) | 850 | 2.984 (Amex 2.484 + Barbara 500) | **727** | — | 727 | 0 | 13.000 |
+| Nov 26 | 4.650 | 770 | 3.129 (INPS 16/11 + 2° acconto 30/11) | 850 | 522 (Soc. Verde 455 + Amex 67) | **−621** | — | 106 | 0 | 13.000 |
+| Dic 26 | 4.400 | 770 | 100 → fondo (cedolare) | 1.100 | 455 (Soc. Verde) | **1.975** | Irina 1.581 | 500 | 100 | 11.419 |
+| Gen 27 | 4.400 | 770 | 950 → fondo | 1.100 | 454 (Soc. Verde, ultima) | **1.126** | Irina 1.126 | 500 | 1.050 | 10.293 |
+| Feb 27 | 4.400 | 770 | 950 → fondo (paga INPS 758) | 1.100 | 0 | **1.580** | **Irina 293 ✅ SALDATA** · Ciprian 1.287 | 500 | 1.242 | 8.713 |
+| Mar 27 | 4.400 | 770 | 950 → fondo | 1.100 | 0 | **1.580** | Ciprian 1.580 | 500 | 2.192 | 7.133 |
+| Apr 27 | 4.400 | 770 | 950 → fondo | 1.100 | 0 | **1.580** | Ciprian 1.580 | 500 | 3.142 | 5.553 |
+| Mag 27 | 4.400 | 770 | 950 → fondo (paga INPS 770) | 1.100 | 0 | **1.580** | **Ciprian 553 ✅ SALDATO** · Aurora 1.027 | 500 | 3.322 | 3.973 |
+| Giu 27 | 4.400 | 770 | 950 → fondo (paga saldo e acconto ~2.926 + cedolare ~441) | 1.100 | 0 | **1.580** | Aurora 1.580 | 500 | 905 | 2.393 |
+| Lug 27 | 4.400 | 770 | 950 → fondo | 1.100 | 0 | **1.580** | Aurora 1.580 | 500 | 1.855 | 813 |
+| Ago 27 | 4.400 | 770 | 950 → fondo (paga INPS 770) | 1.100 | 0 | **1.580** | **Aurora 813 ✅ SALDATA** 🎯 | 1.267 | 2.035 | **0** |
+| Set 27 | 4.400 | 770 | 950 → fondo | 1.100 | 0 | **1.580** | — → fondo emergenze | 2.847 | 2.985 | 0 |
+| Ott 27 | 4.400 | 770 | 950 → fondo | 1.100 | 0 | **1.580** | — → fondo emergenze | 4.427 | 3.935 | 0 |
+| Nov 27 | 4.400 | 770 | 950 → fondo (paga INPS 770 + 2° acconto ~2.828 + cedolare ~189) | 1.100 | 0 | **1.580** | — → fondo emergenze | 6.007 | 1.098 | 0 |
+| Dic 27 | 4.400 | 770 | 950 → fondo | 1.100 | 0 | **1.580** | — → fondo emergenze | **7.587** | 2.048 | 0 |
 
 **Note sulla tabella**
-- **Dicembre 2026 chiude in negativo per il mese (−€ 831)**, ma è coperto dalla cassa accumulata a novembre (€ 1.477). Per questo non va speso un euro del margine di novembre.
-- Il **Fondo Tasse non scende mai sotto zero** e a fine 2027 ha € 1.378 per la rata INPS di febbraio 2028.
-- **Da gennaio 2028 hai ~€ 1.180/mese liberi**, da destinare a un fondo emergenze (obiettivo 3 mensilità di spese fisse, circa € 5.600) e poi agli investimenti.
+- **Novembre 2026 è il mese più stretto** (margine −€ 621): si chiude con **€ 106 di cassa** solo perché il margine di ottobre (€ 727) resta intatto. **Non spendere un euro dell'affitto di ottobre**: serve a pagare l'acconto del 30/11.
+- Il **Fondo Tasse non va mai sotto zero** e a fine 2027 ha € 2.048 per la rata INPS di febbraio 2028.
+- **Da settembre 2027 hai ~€ 1.580/mese liberi.** A dicembre 2027 la cassa arriva a **€ 7.587**, che supera il fondo emergenze obiettivo (3 mensilità di spese fisse, circa € 5.600).
 
 ### 4.3 Sensibilità (cosa succede se…)
 | Scenario | Effetto |
 |---|---|
-| Crediti incassati solo per € 1.000 a ottobre | Ottobre a −€ 1.273: servono anticipo provvigionale dall'agenzia oppure l'anticipo della rata di ottobre del mutuo da parte di Aurora (aggiunto al suo credito) |
-| Società Verde vuole il saldo intero il 06/11 | Novembre si chiude comunque (+€ 341); dicembre a −€ 376 con cassa a ~€ 190, sotto il cuscinetto → nessun rimborso a Irina fino a gennaio e il traguardo slitta di circa 1 mese |
-| Provvigioni a € 2.400 invece di € 2.800 | Capacità di rimborso € 780/mese → debito zero a **maggio 2028** |
-| Debito Julian (€ 3.000) confermato | Debito zero a **marzo 2028** |
-| Mese forte (es. aprile 2026: € 5.546) | Ogni € 1.000 in più anticipa la fine di circa 1 mese |
+| **L'inquilino salta un mese** a ott o nov 2026 | Novembre a −€ 394: 2° acconto con ravvedimento entro il 16/12 (≈ € 35) oppure anticipo provvigionale dall'agenzia |
+| Crediti incassati solo per € 1.000 a ottobre | Cassa di novembre a −€ 1.394: servono anticipo provvigionale dall'agenzia **e** ravvedimento dell'acconto; traguardo a settembre 2027 |
+| Società Verde vuole il saldo intero il 06/11 | Novembre a −€ 803: ravvedimento del 2° acconto entro il 16/12; traguardo invariato (agosto 2027) |
+| Aurora versa € 1.100 (non € 1.350) a ott–nov e niente vendite | Novembre a −€ 694: stesso rimedio (ravvedimento); traguardo a settembre 2027 |
+| Provvigioni a € 2.400 invece di € 2.800 | Capacità di rimborso ~€ 1.180/mese → debito zero a **dicembre 2027** |
+| Debito Julian (€ 3.000) confermato | Debito zero a **ottobre 2027** |
+| Mese forte (es. aprile 2026: € 5.546) | Ogni € 1.580 in più anticipa la fine di circa 1 mese |
+
+### 4.4 Cose da sistemare sull'appartamento in affitto
+1. **Contratto registrato all'Agenzia delle Entrate** e scelta della **cedolare secca** (21%, oppure 10% con canone concordato se il Comune lo prevede). Se il contratto non è registrato, regolarizzalo subito: gli affitti in nero comportano sanzioni pesanti.
+2. **Costi del proprietario da non dimenticare:** IMU (seconda casa, rate 16/06 e 16/12, importo da verificare col Comune), quota di condominio non ripetibile, manutenzione straordinaria. Se ci sono, vanno pagati con i € 400 netti, e il margine mensile si riduce di conseguenza.
+3. **Canone in automatico:** fatti pagare con bonifico permanente il giorno 1–5 su un conto dedicato (o su uno spazio N26), non in contanti.
+4. **Irina ti versa "spese condominiali" (€ 250 + € 250 a settembre):** se riguardano questo appartamento, tieni separate le spese condominiali dell'inquilino dal canone.
 
 ---
 
@@ -256,11 +268,11 @@ Apple (dalle impostazioni dell'iPhone, voce Abbonamenti), Microsoft, Sky TV, Twi
 Manda a ciascun debitore (compreso Pohrib, € 100) un messaggio scritto con importo e data fissa: "entro il 15/10". Quello che incassi va nell'ordine a **Barbara (€ 500)**, poi alla **F24 del 16/10** e poi all'**Amex del 26/10**. Metti in vendita gli oggetti non essenziali (obiettivo € 300).
 
 **☐ 4. Entro il 4 ottobre: chiama il commercialista e Società Verde.**
-- Al commercialista chiedi: (a) l'importo esatto della rata del 16/10 e se è l'ultima; (b) l'F24 del 16/11 e del 30/11; (c) il costo del **ravvedimento operoso** se paghi il 2° acconto entro il 16/12; (d) se il Gestionale va corretto (la riga di agosto è duplicata).
+- Al commercialista chiedi: (a) l'importo esatto della rata del 16/10 e se è l'ultima; (b) l'F24 del 16/11 e del 30/11; (c) come dichiarare l'affitto (**cedolare secca 21% o 10%**), l'IMU da pagare sull'appartamento e l'importo del ravvedimento operoso, da tenere come paracadute per l'acconto del 30/11; (d) se il Gestionale va corretto (la riga di agosto è duplicata).
 - A **Società Verde** proponi 3 rate da € 455 (6/11, 6/12, 6/1) con una mail o un messaggio scritto e **conferma scritta**.
 
 **☐ 5. Al primo incasso di provvigioni (~5 ottobre): imposta l'automatismo "paga prima te stesso".**
-Riconfigura "Dividi le spese" di N26 così: **€ 770 nello spazio Mutuo** → **€ 1.919 nello spazio F24 di ottobre** → il resto su Terre Venete per spesa e bollette. Parla con Aurora per stabilire contributo (€ 1.350 a ott–nov, poi € 1.100) e forma del prestito di € 5.000 (scrittura privata oppure quota casa). Manda a Irina e Ciprian un messaggio con il calendario di rimborso del §2.4: chi sa quando verrà pagato ha più pazienza.
+Riconfigura "Dividi le spese" di N26 così: **€ 770 nello spazio Mutuo** → **€ 1.919 nello spazio F24 di ottobre** → il resto su Terre Venete per spesa e bollette. **Il primo affitto (€ 500 di oggi) va subito nello spazio "Fondo Tasse"**: è la base per l'acconto del 30/11. Parla con Aurora per stabilire contributo (€ 1.350 a ott–nov, poi € 1.100) e forma del prestito di € 5.000 (scrittura privata oppure quota casa). Manda a Irina e Ciprian un messaggio con il calendario di rimborso del §2.4: chi sa quando verrà pagato ha più pazienza.
 
 ---
 
