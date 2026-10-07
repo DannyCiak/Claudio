@@ -1,2 +1,4 @@
 REPORT*.xlsx
 Piano_Vendite*.xlsx
+__pycache__/
+*.pyc
