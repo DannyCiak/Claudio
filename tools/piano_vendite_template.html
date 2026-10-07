@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piano Vendite Clienti</title>
+<style>
+:root{
+  --bg:#f5f6f8; --panel:#ffffff; --panel2:#f0f2f5; --ink:#1b2430; --muted:#5c6b7a; --line:#dfe3e8;
+  --accent:#1f4e8c; --accent-ink:#ffffff; --accent-soft:#e3ecf8;
+  --ok:#1e7a46; --ok-soft:#dff3e6; --warn:#9a6700; --warn-soft:#fff3cd; --bad:#b42318; --bad-soft:#fde7e4;
+  --a:#dff3e6; --b:#fff3cd; --c:#eceff3; --shadow:0 1px 2px rgba(0,0,0,.06),0 2px 8px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11161d; --panel:#19202a; --panel2:#222b37; --ink:#e7ecf2; --muted:#9aa8b8; --line:#2e3a48;
+    --accent:#7fb0f0; --accent-ink:#0d1520; --accent-soft:#1f3049;
+    --ok:#6fd39a; --ok-soft:#173326; --warn:#f0c35a; --warn-soft:#3a2f12; --bad:#ff8f80; --bad-soft:#3d1d1a;
+    --a:#173326; --b:#3a2f12; --c:#26303c; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11161d; --panel:#19202a; --panel2:#222b37; --ink:#e7ecf2; --muted:#9aa8b8; --line:#2e3a48;
+  --accent:#7fb0f0; --accent-ink:#0d1520; --accent-soft:#1f3049;
+  --ok:#6fd39a; --ok-soft:#173326; --warn:#f0c35a; --warn-soft:#3a2f12; --bad:#ff8f80; --bad-soft:#3d1d1a;
+  --a:#173326; --b:#3a2f12; --c:#26303c; --shadow:none;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+header{position:sticky;top:0;z-index:10;background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+header h1{font-size:16px;margin:0 12px 0 0;white-space:nowrap}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav button{border:1px solid var(--line);background:var(--panel2);padding:6px 12px;border-radius:999px;cursor:pointer}
+nav button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.spacer{flex:1}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--panel);padding:6px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--accent)}
+a.btn{text-decoration:none;display:inline-block}
+.btn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.sm{padding:3px 8px;font-size:12px}
+.save{font-size:12px;color:var(--muted)}
+main{padding:12px 16px;max-width:1500px;margin:0 auto}
+.layout{display:grid;grid-template-columns:minmax(280px,380px) 1fr;gap:14px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+.listhead{padding:10px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.row > *{min-width:0}
+input[type=search],input[type=text],input[type=date],input[type=datetime-local],input[type=number],select,textarea{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 8px;width:100%}
+textarea{resize:vertical;min-height:70px}
+.list{max-height:calc(100vh - 210px);overflow:auto}
+.item{padding:9px 10px;border-bottom:1px solid var(--line);cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:8px;align-items:center}
+.item:hover{background:var(--panel2)}
+.item.sel{background:var(--accent-soft)}
+.item .t{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px}
+.item .nm{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .sub{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip{display:inline-block;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:600;border:1px solid transparent;white-space:nowrap}
+.cA{background:var(--a)} .cB{background:var(--b)} .cC{background:var(--c)}
+.s1{background:var(--c)} .s2,.s3{background:var(--warn-soft);color:var(--warn)} .s4,.s5,.s6{background:var(--accent-soft);color:var(--accent)}
+.s7{background:var(--ok-soft);color:var(--ok)} .s8{background:var(--bad-soft);color:var(--bad)} .s9{background:var(--c);color:var(--muted)}
+.gap{background:var(--bad-soft);color:var(--bad)}
+.detail{padding:16px}
+.dh{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;justify-content:space-between}
+.dh h2{margin:0;font-size:20px}
+.meta{color:var(--muted);font-size:13px}
+.alert{background:var(--warn-soft);color:var(--warn);border-radius:8px;padding:8px 10px;margin:10px 0;font-size:13px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sec{margin-top:14px}
+.sec h3{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:0 0 6px;display:flex;align-items:center;gap:8px}
+.box{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;white-space:pre-wrap}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:13px}
+.kv b{color:var(--muted);font-weight:500}
+label.f{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--muted)}
+label.f > *{color:var(--ink);font-size:14px}
+.quick{display:flex;gap:6px;flex-wrap:wrap}
+.quick .btn{flex:1 1 auto}
+.steps{display:flex;gap:6px;flex-wrap:wrap}
+.steps label{display:flex;gap:5px;align-items:center;border:1px solid var(--line);padding:4px 10px;border-radius:999px;cursor:pointer;background:var(--panel2);font-size:13px}
+.steps input:checked + span{font-weight:700;color:var(--ok)}
+.log{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.log .e{background:var(--panel2);border-left:3px solid var(--accent);border-radius:6px;padding:6px 8px;font-size:13px;white-space:pre-wrap;position:relative}
+.log .e small{color:var(--muted);display:block}
+.log .e button{position:absolute;right:4px;top:4px;border:0;background:none;cursor:pointer;color:var(--muted)}
+details{border:1px solid var(--line);border-radius:10px;background:var(--panel);margin-top:10px}
+details summary{cursor:pointer;padding:9px 12px;font-weight:600}
+details > div{padding:0 12px 12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.kpi{padding:12px}
+.kpi .v{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}
+.kpi .l{color:var(--muted);font-size:12px}
+.bar{display:grid;grid-template-columns:180px 1fr 46px;gap:8px;align-items:center;margin:4px 0;font-size:13px}
+.bar .tr{height:12px;background:var(--panel2);border-radius:6px;overflow:hidden}
+.bar .fl{height:100%;background:var(--accent)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600;position:sticky;top:0;background:var(--panel)}
+.tablewrap{overflow:auto;max-height:calc(100vh - 170px)}
+.empty{padding:30px;text-align:center;color:var(--muted)}
+.back{display:none}
+.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:50}
+.toast.on{opacity:.95}
+.hidden{display:none!important}
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr}
+  .layout.showdetail .listcard{display:none}
+  .layout:not(.showdetail) .detailcard{display:none}
+  .back{display:inline-block}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .list{max-height:none}
+  header{position:static;padding:8px 12px;gap:6px}
+  header h1{width:100%;font-size:15px}
+  .tools .btn{padding:4px 8px;font-size:12px}
+  main{padding:10px}
+  .bar{grid-template-columns:110px 1fr 40px}
+}
+@media print{header,.listcard,.quick,.tools{display:none!important}.layout{display:block}}
+</style>
+</head>
+<body>
+<header>
+  <h1>📒 Piano Vendite · Dan Moscaliuc</h1>
+  <nav id="tabs">
+    <button data-v="oggi" class="on">Giornata</button>
+    <button data-v="tutti">Tutti i clienti</button>
+    <button data-v="agenda">Agenda</button>
+    <button data-v="dash">Dashboard</button>
+    <button data-v="note">Blocco note</button>
+  </nav>
+  <span class="spacer"></span>
+  <span class="save" id="saveInfo">Salvato</span>
+  <div class="tools">
+    <button class="btn" id="bExport" title="Scarica un backup di tutte le annotazioni">⬇ Backup</button>
+    <button class="btn" id="bImport" title="Ripristina da un file di backup">⬆ Ripristina</button>
+    <button class="btn" id="bCsv" title="Esporta la pipeline in CSV (apribile in Excel)">CSV</button>
+    <button class="btn" id="bTheme" title="Tema chiaro/scuro">◐</button>
+    <input type="file" id="fImport" accept=".json" class="hidden">
+  </div>
+</header>
+
+<main>
+  <!-- GIORNATA / TUTTI -->
+  <section id="vList" class="layout">
+    <div class="card listcard">
+      <div class="listhead">
+        <div class="row" id="dayNav">
+          <button class="btn sm" id="dPrev">◀</button>
+          <select id="daySel" style="flex:1"></select>
+          <button class="btn sm" id="dNext">▶</button>
+          <button class="btn sm" id="dToday">Oggi</button>
+        </div>
+        <input type="search" id="q" placeholder="Cerca nome, telefono, comune, prodotto…">
+        <div class="row">
+          <select id="fCl" style="flex:1"><option value="">Classe: tutte</option><option>A</option><option>B</option><option>C</option></select>
+          <select id="fSt" style="flex:2"><option value="">Stato: tutti</option></select>
+        </div>
+        <div class="row">
+          <select id="fP" style="flex:1"><option value="">Prodotto focus: tutti</option></select>
+        </div>
+        <div class="meta" id="listInfo"></div>
+      </div>
+      <div class="list" id="list"></div>
+    </div>
+    <div class="card detailcard"><div class="detail" id="detail"><div class="empty">Seleziona un cliente dalla lista</div></div></div>
+  </section>
+
+  <!-- AGENDA -->
+  <section id="vAgenda" class="hidden">
+    <div class="card" style="padding:14px">
+      <div class="row" style="justify-content:space-between"><h2 style="margin:0;font-size:18px">Appuntamenti</h2>
+        <label class="row" style="font-size:13px"><input type="checkbox" id="agPast"> mostra anche passati</label></div>
+      <div id="agenda" class="sec"></div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="vDash" class="hidden"></section>
+
+  <!-- NOTE -->
+  <section id="vNote" class="hidden">
+    <div class="grid2">
+      <div class="card" style="padding:14px">
+        <h3 style="margin-top:0">Diario della giornata</h3>
+        <div class="row"><input type="date" id="noteDay" style="max-width:200px"></div>
+        <textarea id="dayNote" style="min-height:260px;margin-top:8px" placeholder="Com'è andata oggi? Obiezioni sentite, cosa ha funzionato, cosa cambiare domani…"></textarea>
+      </div>
+      <div class="card" style="padding:14px">
+        <h3 style="margin-top:0">Blocco note libero</h3>
+        <textarea id="freeNote" style="min-height:300px" placeholder="Idee, promemoria, frasi che funzionano, numeri da richiamare…"></textarea>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast"></div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(function(){
+"use strict";
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const BY = Object.fromEntries(DATA.map(c=>[c.id,c]));
+const KEY = 'pianoVendite_DanM_v1';
+const STATI = ["1-Da contattare","2-Non risponde","3-Da richiamare","4-Appuntamento fissato","5-Analisi fatta","6-Proposta presentata","7-Firmato","8-Non interessato","9-Rimandato a prossimo rinnovo"];
+const ESITI = ["","Risposto - appuntamento","Risposto - richiamare","Risposto - no","Non risponde","WhatsApp inviato","Numero errato"];
+const STEPS = ["Hook fatto","Appuntamento fissato","Analisi bisogni","Proposta presentata","Firma","Referral chiesti"];
+const GIORNI = ["domenica","lunedì","martedì","mercoledì","giovedì","venerdì","sabato"];
+const $ = s=>document.querySelector(s);
+const esc = s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+// ---------- stato persistente
+let S = {c:{}, days:{}, free:'', ui:{}};
+let storageOK = true;
+try{ const raw = localStorage.getItem(KEY); if(raw) S = Object.assign(S, JSON.parse(raw)); }catch(e){ storageOK=false; }
+const st = id => (S.c[id] ||= {stato:STATI[0], t1:'', t2:'', t3:'', app:'', prodotti:'', pp:'', pf:'', ref:'', note:'', log:[], steps:{}, wa1:null, wa2:null});
+let saveTimer=null;
+function save(){
+  $('#saveInfo').textContent='Salvataggio…';
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(()=>{
+    try{ localStorage.setItem(KEY, JSON.stringify(S)); $('#saveInfo').textContent='Salvato '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'}); }
+    catch(e){ $('#saveInfo').textContent='⚠ Salvataggio non disponibile: usa "Backup"'; }
+  },300);
+}
+if(!storageOK) setTimeout(()=>$('#saveInfo').textContent='⚠ Il browser blocca il salvataggio: usa "Backup"',50);
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1600);}
+const sNum = s => parseInt(String(s).charAt(0))||1;
+const fmtD = iso => { if(!iso) return ''; const d=new Date(iso+'T00:00'); return GIORNI[d.getDay()]+' '+d.toLocaleDateString('it-IT',{day:'2-digit',month:'2-digit'}); };
+const todayISO = ()=>{const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10);};
+const eur = n => (Number(n)||0).toLocaleString('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+
+// ---------- filtri
+const DAYS = [...new Set(DATA.map(c=>c.d))].sort();
+$('#daySel').innerHTML = DAYS.map(d=>`<option value="${d}">${fmtD(d)} (${DATA.filter(c=>c.d===d).length})</option>`).join('');
+$('#fSt').innerHTML += STATI.map(s=>`<option>${s}</option>`).join('');
+$('#fP').innerHTML += [...new Set(DATA.map(c=>c.p1))].sort().map(p=>`<option>${esc(p)}</option>`).join('');
+let view = S.ui.view || 'oggi';
+let curDay = S.ui.day && DAYS.includes(S.ui.day) ? S.ui.day : (DAYS.includes(todayISO()) ? todayISO() : DAYS[0]);
+let curId = S.ui.sel || null;
+$('#daySel').value = curDay;
+
+function filtered(){
+  const q = $('#q').value.trim().toLowerCase(), cl=$('#fCl').value, fs=$('#fSt').value, fp=$('#fP').value;
+  return DATA.filter(c=>{
+    if(view==='oggi' && !q && c.d!==curDay) return false;
+    if(cl && c.cl!==cl) return false;
+    if(fs && st(c.id).stato!==fs) return false;
+    if(fp && c.p1!==fp) return false;
+    if(q){ const h=(c.n+' '+c.ph+' '+c.co+' '+c.p1+' '+c.pr+' '+c.id+' '+(S.c[c.id]?.note||'')).toLowerCase(); if(!h.includes(q)) return false; }
+    return true;
+  });
+}
+function renderList(){
+  const rows = filtered();
+  $('#dayNav').classList.toggle('hidden', view!=='oggi');
+  const done = rows.filter(c=>sNum(st(c.id).stato)>1).length;
+  $('#listInfo').textContent = `${rows.length} clienti · ${done} già lavorati` + (view==='oggi' && $('#q').value ? ' · ricerca su tutto il portafoglio' : '');
+  $('#list').innerHTML = rows.length ? rows.map(c=>{
+    const s=st(c.id);
+    return `<div class="item ${c.id===curId?'sel':''}" data-id="${c.id}">
+      <div class="t">${view==='oggi'?esc(c.h):esc(c.d.slice(8,10)+'/'+c.d.slice(5,7))}</div>
+      <div><div class="nm">${esc(c.n)}</div><div class="sub">${esc(c.p1)} · ${esc(c.hk)}</div></div>
+      <div style="text-align:right"><span class="chip c${c.cl}">${c.cl}</span><br><span class="chip s${sNum(s.stato)}" title="${esc(s.stato)}">${esc(s.stato.slice(2,16))}</span></div>
+    </div>`;}).join('') : '<div class="empty">Nessun cliente con questi filtri</div>';
+}
+
+// ---------- dettaglio
+function field(label, key, type, extra){
+  const s=st(curId); const v=s[key]??'';
+  if(type==='select') return `<label class="f">${label}<select data-k="${key}">${extra.map(o=>`<option ${o===v?'selected':''}>${esc(o)}</option>`).join('')}</select></label>`;
+  if(type==='textarea') return `<label class="f">${label}<textarea data-k="${key}" placeholder="${esc(extra||'')}">${esc(v)}</textarea></label>`;
+  return `<label class="f">${label}<input type="${type}" data-k="${key}" value="${esc(v)}" ${type==='number'?'step="1" min="0"':''} placeholder="${esc(extra||'')}"></label>`;
+}
+function waLink(num, text){ return `https://wa.me/${num}?text=${encodeURIComponent(text)}`; }
+function mailParts(c){
+  const m = String(c.mail||''); if(!m.startsWith('OGGETTO:')) return null;
+  const i = m.indexOf('\n'); return {sub:m.slice(9,i).trim(), body:m.slice(i).trim()};
+}
+function renderDetail(){
+  const box=$('#detail');
+  if(!curId || !BY[curId]){ box.innerHTML='<div class="empty">Seleziona un cliente dalla lista</div>'; return; }
+  const c=BY[curId], s=st(curId);
+  const wa1 = s.wa1 ?? c.wa1, wa2 = s.wa2 ?? c.wa2, mp = mailParts(c);
+  const canMsg = c.pv==='Sì';
+  box.innerHTML = `
+  <button class="btn sm back" id="bBack">◀ Lista</button>
+  <div class="dh">
+    <div>
+      <h2>${esc(c.n)} <span class="chip c${c.cl}">Classe ${c.cl} · ${c.sc}</span></h2>
+      <div class="meta">${esc(c.id)} · ${esc(c.t)} · ${c.e?esc(c.e)+' anni · ':''}${esc(c.pr)} · ${esc(c.co)} · usa il <b>${esc(c.lt)}</b></div>
+      <div class="meta">📅 Da chiamare: <b>${fmtD(c.d)} alle ${esc(c.h)}</b> · Hook: <b>${esc(c.hk)}</b></div>
+    </div>
+    <div class="row">
+      ${c.wn?`<a class="btn pri" href="tel:+${c.wn}">📞 Chiama ${esc(c.ph)}</a>`:''}
+      ${c.em?`<a class="btn" href="mailto:${esc(c.em)}">✉ ${esc(c.em)}</a>`:''}
+    </div>
+  </div>
+  ${c.al?`<div class="alert">⚠ ${esc(c.al)}</div>`:''}
+
+  <div class="sec"><h3>Esito rapido</h3>
+    <div class="quick">
+      <button class="btn" data-q="nr">🔕 Non risponde</button>
+      <button class="btn" data-q="ric">🔁 Da richiamare</button>
+      <button class="btn" data-q="app">📅 Appuntamento</button>
+      <button class="btn" data-q="no">✖ Non interessato</button>
+      <button class="btn" data-q="firm">✅ Firmato</button>
+    </div>
+  </div>
+
+  <div class="sec"><h3>Pipeline</h3>
+    <div class="grid3">
+      ${field('Stato','stato','select',STATI)}
+      ${field('Data e ora appuntamento','app','datetime-local')}
+      ${field('Prodotti proposti','prodotti','text','es. Lovia + Ultra Salute')}
+      ${field('Tentativo 1','t1','select',ESITI)}
+      ${field('Tentativo 2','t2','select',ESITI)}
+      ${field('Tentativo 3','t3','select',ESITI)}
+      ${field('Premio annuo proposto €','pp','number')}
+      ${field('Premio annuo firmato €','pf','number')}
+      ${field('Referral raccolti','ref','text','nomi e telefoni')}
+    </div>
+    <div class="sec steps">${STEPS.map((x,i)=>`<label><input type="checkbox" data-step="${i}" ${s.steps[i]?'checked':''}><span>${i+1}. ${x}</span></label>`).join('')}</div>
+  </div>
+
+  <div class="sec"><h3>Note e diario</h3>
+    <div class="grid2">
+      <div>${field('Appunti sul cliente (si salvano da soli)','note','textarea','Situazione familiare, mutuo, figli, obiezioni, cosa gli interessa…')}</div>
+      <div>
+        <label class="f">Aggiungi una voce al diario<textarea id="logTxt" placeholder="es. Chiamato, richiamare giovedì dopo le 18; interessato a salute per la moglie"></textarea></label>
+        <div class="row" style="margin-top:6px"><button class="btn pri" id="bLog">+ Aggiungi al diario</button></div>
+      </div>
+    </div>
+    <div class="log">${s.log.slice().reverse().map((e,i)=>`<div class="e"><small>${esc(e.ts)}</small>${esc(e.t)}<button title="Elimina" data-del="${s.log.length-1-i}">✕</button></div>`).join('')}</div>
+  </div>
+
+  <div class="sec"><h3>Script della telefonata <button class="btn sm" data-copy="scr">Copia</button></h3>
+    <div class="box">${esc(c.scr)}</div></div>
+
+  <div class="sec grid2">
+    <div><h3>WhatsApp 1 · preavviso ${s.wa1!=null?'<span class="chip s4">modificato</span>':''}</h3>
+      <textarea id="wa1" style="min-height:120px">${esc(wa1)}</textarea>
+      <div class="row" style="margin-top:6px">
+        ${c.wn&&canMsg?`<a class="btn pri" id="sWa1" target="_blank" rel="noopener" href="${waLink(c.wn,wa1)}">Invia su WhatsApp</a>`:''}
+        <button class="btn" data-copyt="wa1">Copia</button>
+        ${s.wa1!=null?'<button class="btn" data-reset="wa1">Ripristina testo</button>':''}
+      </div></div>
+    <div><h3>WhatsApp 2 · se non risponde ${s.wa2!=null?'<span class="chip s4">modificato</span>':''}</h3>
+      <textarea id="wa2" style="min-height:120px">${esc(wa2)}</textarea>
+      <div class="row" style="margin-top:6px">
+        ${c.wn?`<a class="btn pri" id="sWa2" target="_blank" rel="noopener" href="${waLink(c.wn,wa2)}">Invia su WhatsApp</a>`:''}
+        <button class="btn" data-copyt="wa2">Copia</button>
+        ${s.wa2!=null?'<button class="btn" data-reset="wa2">Ripristina testo</button>':''}
+      </div></div>
+  </div>
+  ${!canMsg?'<div class="alert">Senza consenso privacy commerciale: usa solo messaggi di servizio (rinnovo/documenti) e fai firmare il consenso.</div>':''}
+
+  <div class="sec grid2">
+    <div><h3>Situazione</h3><div class="box kv">
+      <b>Portafoglio</b><span>${esc(c.pf)||'—'}</span>
+      <b>Moduli salute</b><span>${esc(c.ms)||'—'}</span>
+      <b>Premi annui</b><span>${eur(c.pa)} · ${esc(c.np)} polizze</span>
+      <b>Prossima quietanza</b><span>${c.sq?fmtD(c.sq)+' '+c.sq.slice(0,4):'—'}</span>
+      <b>Cliente dal</b><span>${c.cd?c.cd.split('-').reverse().join('/'):'—'}</span>
+      <b>Scoperto su</b><span>${c.g.map(x=>`<span class="chip gap">${esc(x)}</span>`).join(' ')||'—'}</span>
+      <b>Iniziative Allianz</b><span>${esc(c.ini)||'—'}</span>
+      <b>Privacy / OTP / IBIPs</b><span>${esc(c.pv)} / ${esc(c.otp)} / ${esc(c.ib)}</span>
+    </div></div>
+    <div><h3>Cosa proporre</h3><div class="box kv">
+      <b>Prodotto 1</b><span><b style="color:var(--ink)">${esc(c.p1)}</b></span>
+      <b>Perché</b><span>${esc(c.why)}</span>
+      <b>Prodotto 2 / 3</b><span>${esc(c.p2)||'—'} / ${esc(c.p3)||'—'}</span>
+      <b>Luogo</b><span>${esc(c.lu)}</span>
+      <b>Date da proporre</b><span>${esc(c.app)}</span>
+      <b>Sequenza</b><span>${esc(c.seq)}</span>
+    </div></div>
+  </div>
+
+  <details><summary>Domande per l'appuntamento di analisi</summary><div class="box">${esc(c.dq)}</div></details>
+  <details><summary>Obiezione probabile e risposta</summary><div class="box">${esc(c.ob)}</div></details>
+  <details><summary>Proposta da presentare (Good / Better / Best)</summary><div class="box">${esc(c.prop)}</div></details>
+  <details><summary>Documenti da portare · Firma</summary><div class="box">${esc(c.docs)}\n\n${esc(c.fi)}</div></details>
+  <details><summary>Email (3° tentativo)</summary><div class="box">${esc(c.mail)}</div>
+    ${mp&&c.em?`<div class="row" style="margin-top:6px"><a class="btn" href="mailto:${esc(c.em)}?subject=${encodeURIComponent(mp.sub)}&body=${encodeURIComponent(mp.body)}">Apri nell'app email</a></div>`:''}</details>
+  <details><summary>Compliance</summary><div class="box">${esc(c.cmp)}</div></details>
+  `;
+}
+
+// ---------- eventi dettaglio
+const detail = $('#detail');
+detail.addEventListener('input', e=>{
+  const k=e.target.dataset.k;
+  if(k){ st(curId)[k]=e.target.value; save(); if(k==='stato') renderList(); return; }
+  if(e.target.id==='wa1'||e.target.id==='wa2'){
+    const id=e.target.id; st(curId)[id]=e.target.value; save();
+    const a=$('#s'+id[0].toUpperCase()+id.slice(1)); if(a) a.href=waLink(BY[curId].wn, e.target.value);
+  }
+});
+detail.addEventListener('change', e=>{
+  if(e.target.dataset.step!=null){ st(curId).steps[e.target.dataset.step]=e.target.checked; save(); }
+  if(e.target.dataset.k==='stato') renderList();
+});
+function nextAttempt(s, esito){ if(!s.t1) s.t1=esito; else if(!s.t2) s.t2=esito; else s.t3=esito; }
+function addLog(t){ const s=st(curId); s.log.push({ts:new Date().toLocaleString('it-IT',{dateStyle:'short',timeStyle:'short'}), t}); }
+detail.addEventListener('click', e=>{
+  const b=e.target.closest('button,a'); if(!b) return;
+  const s=st(curId), c=BY[curId];
+  if(b.id==='bBack'){ $('#vList').classList.remove('showdetail'); return; }
+  if(b.id==='bLog'){ const t=$('#logTxt').value.trim(); if(!t) return; addLog(t); save(); renderDetail(); toast('Aggiunto al diario'); return; }
+  if(b.dataset.del!=null){ if(confirm('Eliminare questa voce del diario?')){ s.log.splice(+b.dataset.del,1); save(); renderDetail(); } return; }
+  if(b.dataset.copy){ copy(c[b.dataset.copy]); return; }
+  if(b.dataset.copyt){ copy($('#'+b.dataset.copyt).value); return; }
+  if(b.dataset.reset){ s[b.dataset.reset]=null; save(); renderDetail(); return; }
+  if(b.id==='sWa1'||b.id==='sWa2'){ addLog('WhatsApp '+(b.id==='sWa1'?'1 (preavviso)':'2 (non risponde)')+' inviato'); save(); setTimeout(renderDetail,300); return; }
+  const q=b.dataset.q; if(!q) return;
+  if(q==='nr'){ nextAttempt(s,'Non risponde'); s.stato=STATI[1]; addLog('Non risponde'); }
+  if(q==='ric'){ nextAttempt(s,'Risposto - richiamare'); s.stato=STATI[2]; addLog('Da richiamare'); }
+  if(q==='app'){ nextAttempt(s,'Risposto - appuntamento'); s.stato=STATI[3]; s.steps[0]=s.steps[1]=true; addLog('Appuntamento fissato'); toast('Inserisci data e ora dell\'appuntamento'); }
+  if(q==='no'){ nextAttempt(s,'Risposto - no'); s.stato=STATI[7]; addLog('Non interessato'); }
+  if(q==='firm'){ s.stato=STATI[6]; s.steps[4]=true; addLog('Contratto firmato 🎉'); toast('Ricordati di chiedere i referral!'); }
+  save(); renderDetail(); renderList();
+  if(q==='app'){ const i=detail.querySelector('[data-k="app"]'); if(i){ i.focus(); i.scrollIntoView({block:'center'}); } }
+});
+function copy(t){ (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('Copiato'),()=>{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('Copiato');}catch(e){}ta.remove();}); }
+
+// ---------- lista
+$('#list').addEventListener('click', e=>{
+  const it=e.target.closest('.item'); if(!it) return;
+  curId=it.dataset.id; S.ui.sel=curId; save();
+  renderList(); renderDetail(); $('#vList').classList.add('showdetail');
+  if(window.innerWidth<=860) window.scrollTo(0,0);
+});
+['#q','#fCl','#fSt','#fP'].forEach(s=>$(s).addEventListener('input',renderList));
+$('#daySel').addEventListener('change',e=>{curDay=e.target.value;S.ui.day=curDay;save();renderList();});
+$('#dPrev').onclick=()=>{const i=DAYS.indexOf(curDay); if(i>0){curDay=DAYS[i-1];$('#daySel').value=curDay;S.ui.day=curDay;save();renderList();}};
+$('#dNext').onclick=()=>{const i=DAYS.indexOf(curDay); if(i<DAYS.length-1){curDay=DAYS[i+1];$('#daySel').value=curDay;S.ui.day=curDay;save();renderList();}};
+$('#dToday').onclick=()=>{const t=todayISO(); const d=DAYS.find(x=>x>=t)||DAYS[DAYS.length-1]; curDay=d; $('#daySel').value=d; S.ui.day=d; save(); renderList(); if(d!==t) toast(t<DAYS[0]?'Il piano parte lunedì 12/10':'Giorno più vicino del piano');};
+
+// ---------- agenda
+function renderAgenda(){
+  const past=$('#agPast').checked, now=new Date().toISOString().slice(0,16);
+  const rows=DATA.filter(c=>S.c[c.id]?.app && (past || S.c[c.id].app>=now)).sort((a,b)=>S.c[a.id].app.localeCompare(S.c[b.id].app));
+  if(!rows.length){ $('#agenda').innerHTML='<div class="empty">Nessun appuntamento ancora. Quando fissi un appuntamento, inserisci data e ora nella scheda del cliente.</div>'; return; }
+  let html='', last='';
+  rows.forEach(c=>{ const a=S.c[c.id].app, d=a.slice(0,10);
+    if(d!==last){ html+=`${last?'</tbody></table>':''}<h3 style="margin:16px 0 6px">${fmtD(d)}</h3><table><thead><tr><th style="width:70px">Ora</th><th>Cliente</th><th>Prodotto focus</th><th>Luogo</th><th>Stato</th><th>Documenti</th></tr></thead><tbody>`; last=d; }
+    html+=`<tr><td><b>${a.slice(11,16)}</b></td><td><a href="#" data-open="${c.id}">${esc(c.n)}</a><br><span class="meta">${esc(c.ph)}</span></td><td>${esc(c.p1)}</td><td>${esc(c.lu)}</td><td><span class="chip s${sNum(S.c[c.id].stato)}">${esc(S.c[c.id].stato)}</span></td><td class="meta">${esc(c.docs)}</td></tr>`;
+  });
+  $('#agenda').innerHTML=html+'</tbody></table>';
+}
+$('#agPast').addEventListener('change',renderAgenda);
+document.addEventListener('click',e=>{const a=e.target.closest('[data-open]'); if(!a) return; e.preventDefault(); curId=a.dataset.open; setView('tutti'); $('#q').value=''; renderList(); renderDetail(); $('#vList').classList.add('showdetail');});
+
+// ---------- dashboard
+function renderDash(){
+  const all=DATA.map(c=>({c,s:st(c.id)}));
+  const n=k=>all.filter(x=>sNum(x.s.stato)===k).length;
+  const lavorati=all.filter(x=>sNum(x.s.stato)>1).length;
+  const app=all.filter(x=>[4,5,6,7].includes(sNum(x.s.stato))).length;
+  const firm=n(7);
+  const pp=all.reduce((a,x)=>a+(+x.s.pp||0),0), pf=all.reduce((a,x)=>a+(+x.s.pf||0),0);
+  const refs=all.filter(x=>x.s.ref).length;
+  const max=Math.max(1,...STATI.map((s,i)=>n(i+1)));
+  const byDay=DAYS.map(d=>{const r=all.filter(x=>x.c.d===d);return {d,tot:r.length,done:r.filter(x=>sNum(x.s.stato)>1).length};});
+  const prods={}; all.forEach(x=>{const p=x.c.p1; prods[p]=prods[p]||{tot:0,app:0,firm:0}; prods[p].tot++; if([4,5,6,7].includes(sNum(x.s.stato))) prods[p].app++; if(sNum(x.s.stato)===7) prods[p].firm++;});
+  $('#vDash').innerHTML=`
+  <div class="kpis">
+    <div class="card kpi"><div class="v">${lavorati}/${DATA.length}</div><div class="l">Clienti lavorati</div></div>
+    <div class="card kpi"><div class="v">${app}</div><div class="l">Appuntamenti (stati 4–7)</div></div>
+    <div class="card kpi"><div class="v">${firm}</div><div class="l">Contratti firmati</div></div>
+    <div class="card kpi"><div class="v">${app?Math.round(firm/app*100):0}%</div><div class="l">Chiusura su appuntamenti</div></div>
+    <div class="card kpi"><div class="v">${eur(pp)}</div><div class="l">Premio annuo proposto</div></div>
+    <div class="card kpi"><div class="v">${eur(pf)}</div><div class="l">Premio annuo firmato</div></div>
+    <div class="card kpi"><div class="v">${refs}</div><div class="l">Clienti con referral</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card" style="padding:14px"><h3 style="margin-top:0">Pipeline per stato</h3>
+      ${STATI.map((s,i)=>`<div class="bar"><span>${esc(s)}</span><div class="tr"><div class="fl" style="width:${n(i+1)/max*100}%"></div></div><b style="text-align:right">${n(i+1)}</b></div>`).join('')}
+    </div>
+    <div class="card" style="padding:14px"><h3 style="margin-top:0">Per prodotto focus</h3>
+      <table><thead><tr><th>Prodotto</th><th>Clienti</th><th>Appunt.</th><th>Firmati</th></tr></thead><tbody>
+      ${Object.entries(prods).sort((a,b)=>b[1].tot-a[1].tot).map(([p,v])=>`<tr><td>${esc(p)}</td><td>${v.tot}</td><td>${v.app}</td><td>${v.firm}</td></tr>`).join('')}
+      </tbody></table>
+    </div>
+  </div>
+  <div class="card" style="padding:14px;margin-top:14px"><h3 style="margin-top:0">Avanzamento giorno per giorno (clienti lavorati / pianificati)</h3>
+    ${byDay.map(x=>`<div class="bar"><span>${fmtD(x.d)}</span><div class="tr"><div class="fl" style="width:${x.done/x.tot*100}%;background:${x.done===x.tot?'var(--ok)':'var(--accent)'}"></div></div><b style="text-align:right">${x.done}/${x.tot}</b></div>`).join('')}
+  </div>`;
+}
+
+// ---------- note
+$('#noteDay').value = curDay;
+const loadDayNote=()=>{$('#dayNote').value=S.days[$('#noteDay').value]||'';};
+$('#noteDay').addEventListener('change',loadDayNote);
+$('#dayNote').addEventListener('input',e=>{S.days[$('#noteDay').value]=e.target.value;save();});
+$('#freeNote').value=S.free||'';
+$('#freeNote').addEventListener('input',e=>{S.free=e.target.value;save();});
+
+// ---------- viste
+function setView(v){
+  view=v; S.ui.view=v; save();
+  document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+  $('#vList').classList.toggle('hidden',!(v==='oggi'||v==='tutti'));
+  $('#vAgenda').classList.toggle('hidden',v!=='agenda');
+  $('#vDash').classList.toggle('hidden',v!=='dash');
+  $('#vNote').classList.toggle('hidden',v!=='note');
+  if(v==='oggi'||v==='tutti') renderList();
+  if(v==='agenda') renderAgenda();
+  if(v==='dash') renderDash();
+  if(v==='note'){ $('#noteDay').value=$('#noteDay').value||curDay; loadDayNote(); }
+}
+$('#tabs').addEventListener('click',e=>{const b=e.target.closest('button'); if(b) setView(b.dataset.v);});
+
+// ---------- backup / csv / tema
+function download(name, text, type){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text],{type})); a.download=name; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500); }
+$('#bExport').onclick=()=>{ download(`backup-piano-vendite-${todayISO()}.json`, JSON.stringify(S,null,1), 'application/json'); toast('Backup scaricato'); };
+$('#bImport').onclick=()=>$('#fImport').click();
+$('#fImport').onchange=e=>{ const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ try{ const d=JSON.parse(r.result); if(!d.c) throw 0; if(!confirm('Sostituire le annotazioni attuali con quelle del backup?')) return; S=Object.assign({c:{},days:{},free:'',ui:{}},d); save(); $('#freeNote').value=S.free||''; setView(view); renderDetail(); toast('Backup ripristinato'); }catch(err){ alert('File di backup non valido'); } }; r.readAsText(f); e.target.value=''; };
+$('#bCsv').onclick=()=>{
+  const cols=['ID','Cliente','Cellulare','Classe','Data piano','Ora','Prodotto focus','Stato','Tentativo 1','Tentativo 2','Tentativo 3','Appuntamento','Prodotti proposti','Premio proposto','Premio firmato','Referral','Appunti','Diario'];
+  const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+  const lines=[cols.map(q).join(';')].concat(DATA.map(c=>{const s=st(c.id); return [c.id,c.n,c.ph,c.cl,c.d,c.h,c.p1,s.stato,s.t1,s.t2,s.t3,s.app.replace('T',' '),s.prodotti,s.pp,s.pf,s.ref,s.note,s.log.map(e=>e.ts+' '+e.t).join(' | ')].map(q).join(';');}));
+  download(`pipeline-${todayISO()}.csv`, '﻿'+lines.join('\n'), 'text/csv'); toast('CSV scaricato');
+};
+$('#bTheme').onclick=()=>{ const r=document.documentElement; const dark = r.dataset.theme ? r.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches; r.dataset.theme = dark?'light':'dark'; S.ui.theme=r.dataset.theme; save(); };
+if(S.ui.theme) document.documentElement.dataset.theme=S.ui.theme;
+
+// avvio
+setView(view);
+if(curId){ renderDetail(); }
+})();
+</script>
+</body>
+</html>
